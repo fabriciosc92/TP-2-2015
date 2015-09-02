@@ -5,6 +5,7 @@
 package model;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 public abstract class Peca 
 {
@@ -69,7 +70,9 @@ public abstract class Peca
 	{
 		this.nomePeca = nomePeca;
 	}
+	
 	/* Metodo finalizador da peca */
+	@Override
 	public void finalize() throws Throwable
 	{
 		this.caminhoImagemPeca = null;
@@ -77,4 +80,6 @@ public abstract class Peca
 		this.posicaoPeca = null;
 	}
 	
+	/* Metodo abstrato de mover peca */
+	public abstract ArrayList<Point> possivelMoverPosicoes();
 }
