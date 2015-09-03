@@ -30,11 +30,9 @@ public class PecaRei extends Peca
 		{
 			for(int linha = -1; linha<=1; linha++)
 			{
-				if( !(coluna == 0 && linha == 0) )
-				{
-					super.adicionaPontoLista(getPosicaoPeca().x+coluna,
-											 getPosicaoPeca().y+linha, listaPontosMovimento);
-				}
+				super.adicionaPontoLista(getPosicaoPeca().x+coluna,
+						getPosicaoPeca().y+linha, listaPontosMovimento);
+
 			}
 		}
 		return listaPontosMovimento;		
