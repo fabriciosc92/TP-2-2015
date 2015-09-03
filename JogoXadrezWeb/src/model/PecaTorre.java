@@ -14,7 +14,7 @@ public class PecaTorre extends Peca {
 		super();
 	}
 	/* Construtor com parâmetros */
-	public PecaTorre(Point posicaoPeca, String caminhoImagemPeca, String nomePeca)
+	public PecaTorre(Point posicaoPeca, String caminhoImagemPeca)
 	{
 		super(posicaoPeca, caminhoImagemPeca, NOMETORRE);
 	}
@@ -26,12 +26,14 @@ public class PecaTorre extends Peca {
 		ArrayList<Point> listaPontosMovimento = null;				//Lista de pontos de possiveis movimentos
 		listaPontosMovimento = new ArrayList<Point>();
 		
-		for(int linha = 0; linha < 8; linha++)
+		for(int indicadorPosicao = 0; indicadorPosicao < 8; indicadorPosicao++)
 		{
-			super.adicionaPontoLista(super.getPosicaoPecaColuna(), linha,
+			super.adicionaPontoLista(super.getPosicaoPecaColuna(), indicadorPosicao,
+									listaPontosMovimento);
+			super.adicionaPontoLista(indicadorPosicao, super.getPosicaoPecaLinha(),
 									listaPontosMovimento);
 		}
-		return null;
+		return listaPontosMovimento;
 	}
 
 }

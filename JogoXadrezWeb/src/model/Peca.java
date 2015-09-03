@@ -93,6 +93,7 @@ public abstract class Peca
 	/* Metodo para adicionar pontos na lista de possiveis movimentos */
 	protected void adicionaPontoLista(int coluna,int linha,ArrayList<Point> listaPontosMovimento)
 	{
+		//Verificar se lista == null ou coluna/linha <0 || coluna/linha >7
 		if(!propriaPosicao(coluna, linha))
 		{
 			Point pontoPossivel = null;						//Ponto para adicionar na lista

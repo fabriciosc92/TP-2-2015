@@ -13,22 +13,22 @@ public class MovimentosPecas {
 	
 	static ArrayList<Point> movimentosRei()
 	{
-		int posicaoInicialColuna =0; 												//Coluna inicial onde estará a peça no tabuleiro
-		posicaoInicialColuna =  COLUNA;
-		int posicaoInicialLinha = 0;											//Linha inicial onde estará a peça no tabuleiro
-		posicaoInicialLinha = LINHA;
-		ArrayList<Point> pontosPossiveisMovimentoRei = null; 						//Lista para pontos de movimentos do rei
-		pontosPossiveisMovimentoRei = new ArrayList<Point>();
+		int posicaoColuna = 0; 												//Coluna inicial onde estará a peça no tabuleiro
+		posicaoColuna =  COLUNA;
+		int posicaoLinha = 0;											//Linha inicial onde estará a peça no tabuleiro
+		posicaoLinha = LINHA;
+		ArrayList<Point> pontosMovimentoRei = null; 						//Lista para pontos de movimentos do rei
+		pontosMovimentoRei = new ArrayList<Point>();
 
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna + 1, posicaoInicialLinha + 1));
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna + 0, posicaoInicialLinha + 1));
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna - 1, posicaoInicialLinha + 1));
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna - 1, posicaoInicialLinha + 0));
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna - 1, posicaoInicialLinha - 1));
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna + 0, posicaoInicialLinha - 1));
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna + 1, posicaoInicialLinha - 1));
-		pontosPossiveisMovimentoRei.add(new Point(posicaoInicialColuna + 1, posicaoInicialLinha + 0));
-		return pontosPossiveisMovimentoRei;
+		pontosMovimentoRei.add(new Point(posicaoColuna + 1, posicaoLinha + 1));
+		pontosMovimentoRei.add(new Point(posicaoColuna + 0, posicaoLinha + 1));
+		pontosMovimentoRei.add(new Point(posicaoColuna - 1, posicaoLinha + 1));
+		pontosMovimentoRei.add(new Point(posicaoColuna - 1, posicaoLinha + 0));
+		pontosMovimentoRei.add(new Point(posicaoColuna - 1, posicaoLinha - 1));
+		pontosMovimentoRei.add(new Point(posicaoColuna + 0, posicaoLinha - 1));
+		pontosMovimentoRei.add(new Point(posicaoColuna + 1, posicaoLinha - 1));
+		pontosMovimentoRei.add(new Point(posicaoColuna + 1, posicaoLinha + 0));
+		return pontosMovimentoRei;
 	}
 	static ArrayList<Point> movimentosRainha(){
 		
@@ -70,6 +70,32 @@ public class MovimentosPecas {
 		return pontosDosMovimentosRainha;
 		
 	}
-	
+	/* Movimentos da torre */
+	public static ArrayList<Point> movimentosTorre() {
+		int posicaoColuna = 0;										//Posição inicial da coluna
+		posicaoColuna = COLUNA;
+		int posicaoLinha = 0;										//Posição inicial da linha
+		posicaoLinha = LINHA;
+		
+		ArrayList<Point> pontosMovimentosTorre = null;							//Lista para possíveis pontos
+		pontosMovimentosTorre = new ArrayList<Point>();
+
+		pontosMovimentosTorre.add(new Point(posicaoColuna - 4, posicaoLinha));
+		pontosMovimentosTorre.add(new Point(posicaoColuna - 3, posicaoLinha));
+		pontosMovimentosTorre.add(new Point(posicaoColuna - 2, posicaoLinha));
+		pontosMovimentosTorre.add(new Point(posicaoColuna - 1, posicaoLinha));
+		pontosMovimentosTorre.add(new Point(posicaoColuna + 1, posicaoLinha));
+		pontosMovimentosTorre.add(new Point(posicaoColuna + 2, posicaoLinha));
+		pontosMovimentosTorre.add(new Point(posicaoColuna + 3, posicaoLinha));
+		pontosMovimentosTorre.add(new Point(posicaoColuna, posicaoLinha - 4));
+		pontosMovimentosTorre.add(new Point(posicaoColuna, posicaoLinha - 3));
+		pontosMovimentosTorre.add(new Point(posicaoColuna, posicaoLinha - 2));
+		pontosMovimentosTorre.add(new Point(posicaoColuna, posicaoLinha - 1));
+		pontosMovimentosTorre.add(new Point(posicaoColuna, posicaoLinha + 1));
+		pontosMovimentosTorre.add(new Point(posicaoColuna, posicaoLinha + 2));
+		pontosMovimentosTorre.add(new Point(posicaoColuna, posicaoLinha + 3));
+
+		return pontosMovimentosTorre;
+	}
 
 }

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import model.PecaRainha;
 import model.PecaRei;
+import model.PecaTorre;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,13 +19,10 @@ public class ModeloPecaTeste
 	@Test
 	public void testeMovimentoRei() throws Exception
 	{
-		int posicaoInicalColuna = 0;								//Posicao inicial da coluna
-		posicaoInicalColuna = MovimentosPecas.COLUNA;
-		int posicaoInicialLinha = 0;								//Posicao inicial da linha
-		posicaoInicialLinha = MovimentosPecas.LINHA;
+		
 		Point posicaoPecaRei = null;								//Declara posicao da peca rei
 		
-		posicaoPecaRei =  new Point(posicaoInicalColuna, posicaoInicialLinha);
+		posicaoPecaRei =  criaPosicaoInicial();
 		
 		PecaRei pecaReiTestada = null;								//Declara peca rei;
 		
@@ -40,13 +39,8 @@ public class ModeloPecaTeste
 	@Test
 	public void testeMovimentosRainha() throws Exception
 	{
-		int posicaoInicalColuna = 0;								//Posicao inicial da coluna
-		posicaoInicalColuna = MovimentosPecas.COLUNA;
-		int posicaoInicialLinha = 0;								//Posicao inicial da linha
-		posicaoInicialLinha = MovimentosPecas.LINHA;
-		
 		Point posicaoPecaRainha = null;								//Posicao da peca rainha
-		posicaoPecaRainha = new Point(posicaoInicalColuna, posicaoInicialLinha);
+		posicaoPecaRainha = criaPosicaoInicial();
 		
 		PecaRainha pecaRainhaTestada= null;							//Declara peça rainha a ser testada
 		pecaRainhaTestada = new PecaRainha(posicaoPecaRainha, "");
@@ -57,6 +51,23 @@ public class ModeloPecaTeste
 		assertMoves(MovimentosPecas.movimentosRainha(), listaPontosMovimentos);
 		
 	}
+	
+	/* Testa movimentos da torre */
+	@Test
+	public void testaMovimentosTorre() throws Exception
+	{
+		Point posicaoPecaTorre = null;								//Posicao da peca torre
+		posicaoPecaTorre = criaPosicaoInicial();
+		
+		PecaTorre pecaTorreTestada= null;							//Declara peça torre a ser testada
+		pecaTorreTestada = new PecaTorre(posicaoPecaTorre, "");
+		
+		ArrayList<Point> listaPontosMovimentos = null;				//Lista que irá armazena os pontos de movimento da rainha
+		listaPontosMovimentos = pecaTorreTestada.pontosPossivelMover();
+		
+		assertMoves(MovimentosPecas.movimentosTorre(), listaPontosMovimentos);
+	}
+	
 	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a peça possa realizar */
 	private void assertMoves(ArrayList<Point> movimentosEsperados, 
 							ArrayList<Point> movimentosRealizados) throws Exception 
@@ -76,6 +87,16 @@ public class ModeloPecaTeste
 			}
 		}
 		Assert.assertTrue(true);//Se a funÃ§Ã£o nÃ£o foi encerrada Teste Deu certo!
+	}
+	
+	private Point criaPosicaoInicial(){
+		int posicaoInicalColuna = 0;								//Posicao inicial da coluna
+		posicaoInicalColuna = MovimentosPecas.COLUNA;
+		int posicaoInicialLinha = 0;								//Posicao inicial da linha
+		posicaoInicialLinha = MovimentosPecas.LINHA;
+		Point posicaoInicial = null;								//Ponto da posicao inicial
+		posicaoInicial= new Point(posicaoInicalColuna,posicaoInicialLinha);
+		return posicaoInicial;		
 	}
 	
 }
