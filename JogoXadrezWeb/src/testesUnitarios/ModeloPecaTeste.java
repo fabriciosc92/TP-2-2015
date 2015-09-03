@@ -6,6 +6,7 @@ package testesUnitarios;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import model.PecaBispo;
 import model.PecaRainha;
 import model.PecaRei;
 import model.PecaTorre;
@@ -32,7 +33,7 @@ public class ModeloPecaTeste
 		
 		listaPontosMovimentos = pecaReiTestada.pontosPossivelMover();
 		
-		assertMoves(MovimentosPecas.movimentosRei(), listaPontosMovimentos);
+		assertMoves(MovimentosPecas.pontosMovimentosRei(), listaPontosMovimentos);
 	}
 	
 	/* Teste de movimento da peca Rainha */
@@ -48,7 +49,7 @@ public class ModeloPecaTeste
 		ArrayList<Point> listaPontosMovimentos = null;				//Lista que irá armazena os pontos de movimento da rainha
 		listaPontosMovimentos = pecaRainhaTestada.pontosPossivelMover();
 		
-		assertMoves(MovimentosPecas.movimentosRainha(), listaPontosMovimentos);
+		assertMoves(MovimentosPecas.pontosMovimentosRainha(), listaPontosMovimentos);
 		
 	}
 	
@@ -65,9 +66,24 @@ public class ModeloPecaTeste
 		ArrayList<Point> listaPontosMovimentos = null;				//Lista que irá armazena os pontos de movimento da rainha
 		listaPontosMovimentos = pecaTorreTestada.pontosPossivelMover();
 		
-		assertMoves(MovimentosPecas.movimentosTorre(), listaPontosMovimentos);
+		assertMoves(MovimentosPecas.pontosMovimentosTorre(), listaPontosMovimentos);
 	}
 	
+	/* Testa movimentos bispo */
+	@Test
+	public void testaMovimentosBispo() throws Exception
+	{
+		Point posicaoPecaBispo = null;								//Posicao da peca bispo
+		posicaoPecaBispo = criaPosicaoInicial();
+		
+		PecaBispo pecaBispoTestada= null;							//Declara peça bispo a ser testada
+		pecaBispoTestada = new PecaBispo(posicaoPecaBispo, "");
+		
+		ArrayList<Point> listaPontosMovimentos = null;				//Lista que irá armazena os pontos de movimento da rainha
+		listaPontosMovimentos = pecaBispoTestada.pontosPossivelMover();
+		
+		assertMoves(MovimentosPecas.pontosMovimentosBispo(), listaPontosMovimentos);
+	}
 	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a peça possa realizar */
 	private void assertMoves(ArrayList<Point> movimentosEsperados, 
 							ArrayList<Point> movimentosRealizados) throws Exception 

@@ -11,7 +11,7 @@ public class MovimentosPecas {
 	static final int COLUNA = 4;				//constante para posicao inicial
 	static final int LINHA = 4;					//constante para posicao inicial
 	
-	static ArrayList<Point> movimentosRei()
+	static ArrayList<Point> pontosMovimentosRei()
 	{
 		int posicaoColuna = 0; 												//Coluna inicial onde estará a peça no tabuleiro
 		posicaoColuna =  COLUNA;
@@ -30,7 +30,7 @@ public class MovimentosPecas {
 		pontosMovimentoRei.add(new Point(posicaoColuna + 1, posicaoLinha + 0));
 		return pontosMovimentoRei;
 	}
-	static ArrayList<Point> movimentosRainha(){
+	static ArrayList<Point> pontosMovimentosRainha(){
 		
 		int posicaoColuna = 0;					//Coluna inicial onde estará a peça no tabuleiro
 		posicaoColuna = COLUNA;
@@ -71,7 +71,7 @@ public class MovimentosPecas {
 		
 	}
 	/* Movimentos da torre */
-	public static ArrayList<Point> movimentosTorre() {
+	public static ArrayList<Point> pontosMovimentosTorre() {
 		int posicaoColuna = 0;										//Posição inicial da coluna
 		posicaoColuna = COLUNA;
 		int posicaoLinha = 0;										//Posição inicial da linha
@@ -98,7 +98,7 @@ public class MovimentosPecas {
 		return pontosMovimentosTorre;
 	}
 	/* Movimentos do bispo */
-	public static ArrayList<Point> getBishopmovimenta() {
+	public static ArrayList<Point> pontosMovimentosBispo() {
 		int posicaoColuna = 0;										//Posição inicial da coluna
 		posicaoColuna = COLUNA;
 		int posicaoLinha = 0;										//Posição inicial da linha
