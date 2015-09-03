@@ -94,7 +94,7 @@ public abstract class Peca
 	protected void adicionaPontoLista(int coluna,int linha,ArrayList<Point> listaPontosMovimento)
 	{
 		//Verificar se lista == null ou coluna/linha <0 || coluna/linha >7
-		if(!propriaPosicao(coluna, linha))
+		if(!propriaPosicao(coluna, linha) && linha >=0 && linha < 8 && coluna < 8 && coluna >=0)
 		{
 			Point pontoPossivel = null;						//Ponto para adicionar na lista
 			pontoPossivel = new Point(coluna, linha);

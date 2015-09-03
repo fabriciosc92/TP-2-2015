@@ -97,5 +97,31 @@ public class MovimentosPecas {
 
 		return pontosMovimentosTorre;
 	}
+	/* Movimentos do bispo */
+	public static ArrayList<Point> getBishopmovimenta() {
+		int posicaoColuna = 0;										//Posição inicial da coluna
+		posicaoColuna = COLUNA;
+		int posicaoLinha = 0;										//Posição inicial da linha
+		posicaoLinha = LINHA;
+
+		ArrayList<Point> pontosMovimentosBispo = null;							//Lista para possíveis pontos
+		pontosMovimentosBispo = new ArrayList<Point>();
+		
+		pontosMovimentosBispo.add(new Point(posicaoColuna - 1, posicaoLinha + 1));
+		pontosMovimentosBispo.add(new Point(posicaoColuna - 2, posicaoLinha + 2));
+		pontosMovimentosBispo.add(new Point(posicaoColuna - 3, posicaoLinha + 3));
+		pontosMovimentosBispo.add(new Point(posicaoColuna - 1, posicaoLinha - 1));
+		pontosMovimentosBispo.add(new Point(posicaoColuna - 2, posicaoLinha - 2));
+		pontosMovimentosBispo.add(new Point(posicaoColuna - 3, posicaoLinha - 3));
+		pontosMovimentosBispo.add(new Point(posicaoColuna - 4, posicaoLinha - 4));
+		pontosMovimentosBispo.add(new Point(posicaoColuna + 1, posicaoLinha + 1));
+		pontosMovimentosBispo.add(new Point(posicaoColuna + 2, posicaoLinha + 2));
+		pontosMovimentosBispo.add(new Point(posicaoColuna + 3, posicaoLinha + 3));
+		pontosMovimentosBispo.add(new Point(posicaoColuna + 1, posicaoLinha - 1));
+		pontosMovimentosBispo.add(new Point(posicaoColuna + 2, posicaoLinha - 2));
+		pontosMovimentosBispo.add(new Point(posicaoColuna + 3, posicaoLinha - 3));
+
+		return pontosMovimentosBispo;
+	}
 
 }
