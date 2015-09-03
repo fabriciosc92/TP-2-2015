@@ -22,9 +22,9 @@ public class PecaRei extends Peca
 	
 	/* Sobrescrita do metodo de movimentacao da classe peca */
 	@Override
-	public ArrayList<Point> possivelMoverPosicoes() {
-		ArrayList<Point> listaPontosPossivelMovimentacao = null; 				//Lista que armazenara os pontos para os quais a peca possa ser movida
-		listaPontosPossivelMovimentacao = new ArrayList<Point>();
+	public ArrayList<Point> pontosPossivelMover() {
+		ArrayList<Point> listaPontosMovimento = null; 				//Lista que armazenara os pontos para os quais a peca possa ser movida
+		listaPontosMovimento = new ArrayList<Point>();
 		/* adiciona todos os pontos mesmo */
 		for(int coluna=-1; coluna<=1; coluna++)
 		{
@@ -32,14 +32,11 @@ public class PecaRei extends Peca
 			{
 				if( !(coluna == 0 && linha == 0) )
 				{
-					System.out.println("("+coluna + ","+ linha+")");
-					Point pontoNovoMovimento = null;								//Ponto para indicar onde é o campo de movimentacao
-					pontoNovoMovimento = new Point(getPosicaoPeca().x+coluna, 
-													getPosicaoPeca().y+linha);
-					listaPontosPossivelMovimentacao.add(pontoNovoMovimento);
+					super.adicionaPontoLista(getPosicaoPeca().x+coluna,
+											 getPosicaoPeca().y+linha, listaPontosMovimento);
 				}
 			}
 		}
-		return listaPontosPossivelMovimentacao;		
+		return listaPontosMovimento;		
 	}
 }

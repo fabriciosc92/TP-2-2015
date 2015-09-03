@@ -10,19 +10,21 @@
 	</head>
 	<body>
 		<table border='1'>
-		<% for(int i =1;i<10;i++)
+		<% for(int i =0;i<8;i++)
 		{ %>
 			<tr>
-				<% for(int j=1;j<10;j++)
+				<% for(int j=0;j<8;j++)
 				{ %>
 					<td> 
+						
 						<form method="get" action="Exemple">
 						<!-- na forma de formulario-->
-							<input type="hidden" name="par" value="<%= new ExempleModel(i,j) %>"></input>
+						<!-- 	<input type="hidden" name="par" value="<%= new ExempleModel(i,j) %>"></input> -->
 						<!-- na forma de link -->
-							<a href="Exemple?par=<%= new ExempleModel(i,j) %>"><%= i+","+j %></a>					
+						<!--   <a href="Exemple?par=<%= new ExempleModel(i,j) %>"><%= i+","+j %></a>-->					
 						<!-- botao do formulario-->
-							<button type='submit'><%= i+","+j %> </button>
+						<!-- <button type='submit'><%= i+","+j %> </button> -->
+						<%= i+","+j %>
 						</form>
 					</td>
 				<%} %>

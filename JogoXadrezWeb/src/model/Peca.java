@@ -81,5 +81,22 @@ public abstract class Peca
 	}
 	
 	/* Metodo abstrato de mover peca */
-	public abstract ArrayList<Point> possivelMoverPosicoes();
+	public abstract ArrayList<Point> pontosPossivelMover();
+	/* Metodo para adicionar pontos na lista de possiveis movimentos */
+	protected void adicionaPontoLista(int coluna,int linha,ArrayList<Point> listaPontosMovimento)
+	{
+		Point pontoPossivel = null;						//Ponto para adicionar na lista
+		pontoPossivel = new Point(coluna, linha);
+		listaPontosMovimento.add(pontoPossivel);
+	}
+	/* Verifica se a linha e coluna passadas por parametro é a mesma que a posição da peça */
+	protected boolean propriaPosicao(int coluna, int linha) 
+	{
+		if( coluna == this.getPosicaoPeca().getX() &&
+			linha == this.getPosicaoPeca().getY() )
+		{
+			return true;
+		}
+		return false;
+	}
 }

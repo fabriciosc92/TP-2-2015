@@ -5,6 +5,8 @@ package testesUnitarios;
 
 import java.awt.Point;
 import java.util.ArrayList;
+
+import model.PecaRainha;
 import model.PecaRei;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,23 +17,46 @@ public class ModeloPecaTeste
 	@Test
 	public void testeMovimentoRei() throws Exception
 	{
-		int posicaoX = MovimentosPecas.COLUNA;			//Posicao inicial da cordenada x
-		int posicaoY = MovimentosPecas.LINHA;			//Posicao inicial da cordenada y
-		Point posicaoPecaRei = null;					//Declara posicao da peca rei
+		int posicaoInicalColuna = 0;								//Posicao inicial da coluna
+		posicaoInicalColuna = MovimentosPecas.COLUNA;
+		int posicaoInicialLinha = 0;								//Posicao inicial da linha
+		posicaoInicialLinha = MovimentosPecas.LINHA;
+		Point posicaoPecaRei = null;								//Declara posicao da peca rei
 		
-		posicaoPecaRei =  new Point(posicaoX, posicaoY);
+		posicaoPecaRei =  new Point(posicaoInicalColuna, posicaoInicialLinha);
 		
-		PecaRei pecaReiTestada = null;					//Declara peca rei;
+		PecaRei pecaReiTestada = null;								//Declara peca rei;
 		
 		pecaReiTestada = new PecaRei(posicaoPecaRei, "");
 		
-		ArrayList<Point> listaPontosMovimentos = null;	//Lista que irá armazena os pontos de movimento do rei
+		ArrayList<Point> listaPontosMovimentos = null;				//Lista que irá armazena os pontos de movimento do rei
 		
-		listaPontosMovimentos = pecaReiTestada.possivelMoverPosicoes();
+		listaPontosMovimentos = pecaReiTestada.pontosPossivelMover();
 		
 		assertMoves(MovimentosPecas.movimentosRei(), listaPontosMovimentos);
 	}
 	
+	/* Teste de movimento da peca Rainha */
+	@Test
+	public void testeMovimentosRainha() throws Exception
+	{
+		int posicaoInicalColuna = 0;								//Posicao inicial da coluna
+		posicaoInicalColuna = MovimentosPecas.COLUNA;
+		int posicaoInicialLinha = 0;								//Posicao inicial da linha
+		posicaoInicialLinha = MovimentosPecas.LINHA;
+		
+		Point posicaoPecaRainha = null;								//Posicao da peca rainha
+		posicaoPecaRainha = new Point(posicaoInicalColuna, posicaoInicialLinha);
+		
+		PecaRainha pecaRainhaTestada= null;							//Declara peça rainha a ser testada
+		pecaRainhaTestada = new PecaRainha(posicaoPecaRainha, "");
+		
+		ArrayList<Point> listaPontosMovimentos = null;				//Lista que irá armazena os pontos de movimento da rainha
+		listaPontosMovimentos = pecaRainhaTestada.pontosPossivelMover();
+		
+		assertMoves(MovimentosPecas.movimentosRainha(), listaPontosMovimentos);
+		
+	}
 	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a peça possa realizar */
 	private void assertMoves(ArrayList<Point> movimentosEsperados, 
 							ArrayList<Point> movimentosRealizados) throws Exception 
