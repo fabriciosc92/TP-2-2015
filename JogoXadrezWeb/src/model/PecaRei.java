@@ -26,12 +26,12 @@ public class PecaRei extends Peca
 		ArrayList<Point> listaPontosMovimento = null; 				//Lista que armazenara os pontos para os quais a peca possa ser movida
 		listaPontosMovimento = new ArrayList<Point>();
 		/* adiciona todos os pontos mesmo */
-		for(int coluna=-1; coluna<=1; coluna++)
+		for(int linha=-1; linha<=1; linha++)
 		{
-			for(int linha = -1; linha<=1; linha++)
+			for(int coluna = -1; coluna<=1; coluna++)
 			{
-				super.adicionaPontoLista(getPosicaoPeca().x+coluna,
-						getPosicaoPeca().y+linha, listaPontosMovimento);
+				super.adicionaPontoLista(super.getPosicaoPecaColuna()+coluna,
+										super.getPosicaoPecaLinha()+linha, listaPontosMovimento);
 
 			}
 		}

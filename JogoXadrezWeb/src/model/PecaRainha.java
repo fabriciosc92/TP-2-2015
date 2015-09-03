@@ -40,13 +40,13 @@ public class PecaRainha extends Peca {
 				{
 					super.adicionaPontoLista(coluna, linha, listaPontosMovimento);
 				}
-				else if( (coluna + linha) == (this.getPosicaoPeca().getX()
-						+ this.getPosicaoPeca().getY()))
+				else if( (coluna + linha) == 
+						(super.getPosicaoPecaColuna() + super.getPosicaoPecaLinha()))
 				{
 					super.adicionaPontoLista(coluna, linha, listaPontosMovimento);
 				}
-				else if( (coluna == this.getPosicaoPeca().getX()) ||
-						linha == this.getPosicaoPeca().getY())
+				else if( (coluna == super.getPosicaoPecaColuna()) ||
+						linha == super.getPosicaoPecaLinha())
 				{
 					super.adicionaPontoLista(coluna, linha, listaPontosMovimento);
 				}

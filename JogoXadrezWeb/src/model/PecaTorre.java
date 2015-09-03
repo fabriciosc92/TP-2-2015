@@ -23,7 +23,14 @@ public class PecaTorre extends Peca {
 	@Override
 	public ArrayList<Point> pontosPossivelMover() 
 	{
+		ArrayList<Point> listaPontosMovimento = null;				//Lista de pontos de possiveis movimentos
+		listaPontosMovimento = new ArrayList<Point>();
 		
+		for(int linha = 0; linha < 8; linha++)
+		{
+			super.adicionaPontoLista(super.getPosicaoPecaColuna(), linha,
+									listaPontosMovimento);
+		}
 		return null;
 	}
 

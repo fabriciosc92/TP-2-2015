@@ -50,6 +50,14 @@ public abstract class Peca
 	{
 		this.posicaoPeca = posicaoPeca;
 	}
+	/* Retorna coluna onde a peça esta */
+	public int getPosicaoPecaColuna(){
+		return posicaoPeca.x;
+	}
+	/* Retorna linha onde a peça esta */
+	public int getPosicaoPecaLinha(){
+		return posicaoPeca.y;
+	}
 	/* Retorna String para caminho de onde esta imagem da peca*/
 	public String getCaminhoImagemPeca() 
 	{
@@ -95,8 +103,8 @@ public abstract class Peca
 	/* Verifica se a linha e coluna passadas por parametro é a mesma que a posição da peça */
 	protected boolean propriaPosicao(int coluna, int linha) 
 	{
-		if( coluna == this.getPosicaoPeca().getX() &&
-			linha == this.getPosicaoPeca().getY() )
+		if( coluna == this.getPosicaoPecaColuna() &&
+			linha == this.getPosicaoPecaLinha() )
 		{
 			return true;
 		}
