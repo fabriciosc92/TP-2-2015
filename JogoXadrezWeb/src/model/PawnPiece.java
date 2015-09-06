@@ -43,7 +43,7 @@ public class PawnPiece extends Piece
 	}
 	
 	/* Change the status of firstMove */
-	public void madeFirstMove(){
+	public void makeFirstMove(){
 		setFirstMove(false);
 	}
 

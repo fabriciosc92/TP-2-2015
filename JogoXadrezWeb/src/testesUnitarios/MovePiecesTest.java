@@ -12,6 +12,7 @@ import org.junit.Test;
 import model.BishopPiece;
 import model.HorsePiece;
 import model.KingPiece;
+import model.PawnPiece;
 import model.QueenPiece;
 import model.TowerPiece;
 
@@ -103,8 +104,47 @@ public class MovePiecesTest
 		assertMoves(MovesPieceTestHelper.getPointsMoveHorse(), listPointMoves);
 	}
 	
+	/* Test moves of pawn */
+	@Test
+	public void movePawnTestTeamOne() throws Exception
+	{
+		Point positionPiecePawn = null;										//Position of pawn piece
+		positionPiecePawn = createPositionInitial();
+		
+		PawnPiece pawnPieceTestTeamOne = null;								//A instance of pawn team 1 to test
+		pawnPieceTestTeamOne = new PawnPiece(positionPiecePawn, "",1);
+		
+		ArrayList<Point> listPointMovesTeamOne = null;						//List to store the points of movements from the pawn
+		listPointMovesTeamOne = pawnPieceTestTeamOne.pointMovesPiece();
+		
+		assertMoves(MovesPieceTestHelper.getPointsFirstMovePawn(1), listPointMovesTeamOne);
+		
+		pawnPieceTestTeamOne.makeFirstMove();
+		
+		listPointMovesTeamOne = pawnPieceTestTeamOne.pointMovesPiece();
+		assertMoves(MovesPieceTestHelper.getPointsMovePawn(1), listPointMovesTeamOne);
+	}
 	
-	
+	/* Test moves of pawn */
+	@Test
+	public void movePawnTestTeamTwo() throws Exception
+	{
+		Point positionPiecePawn = null;										//Position of pawn piece
+		positionPiecePawn = createPositionInitial();
+		
+		PawnPiece pawnPieceTestTeamTwo = null;								//A instance of pawn team 2 to test
+		pawnPieceTestTeamTwo = new PawnPiece(positionPiecePawn, "",2);
+		
+		ArrayList<Point> listPointMovesTeamTwo = null;						//List to store the points of movements from the pawn
+		listPointMovesTeamTwo = pawnPieceTestTeamTwo.pointMovesPiece();
+		
+		assertMoves(MovesPieceTestHelper.getPointsFirstMovePawn(2), listPointMovesTeamTwo);
+		
+		pawnPieceTestTeamTwo.makeFirstMove();
+		
+		listPointMovesTeamTwo = pawnPieceTestTeamTwo.pointMovesPiece();
+		assertMoves(MovesPieceTestHelper.getPointsMovePawn(2), listPointMovesTeamTwo);
+	}
 	
 	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a peça possa realizar */
 	private void assertMoves(ArrayList<Point> listPointsExpected, 

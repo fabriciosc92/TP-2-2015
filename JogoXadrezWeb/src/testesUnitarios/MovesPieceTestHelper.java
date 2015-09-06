@@ -148,4 +148,46 @@ public class MovesPieceTestHelper {
 		return listPointsMoveHorse;
 	}
 	
+	public static ArrayList<Point> getPointsMovePawn(int team)
+	{
+		int positionColumn = 0;										//Initial position of column
+		positionColumn = COLUMN;
+		int positionRow = 0;										//Initial position of row
+		positionRow = ROW;
+		
+		ArrayList<Point> listPointsMovePawn = null;			//list for possible points of movement
+		listPointsMovePawn = new ArrayList<Point>();
+		if(team == 1)
+		{
+			listPointsMovePawn.add(new Point(positionColumn, positionRow+1));
+		}
+		else
+		{
+			listPointsMovePawn.add(new Point(positionColumn, positionRow-1));		
+		}
+		return listPointsMovePawn;
+	}
+	/* Moviments of Pawn */
+	public static ArrayList<Point> getPointsFirstMovePawn(int team)
+	{
+		int positionColumn = 0;										//Initial position of column
+		positionColumn = COLUMN;
+		int positionRow = 0;										//Initial position of row
+		positionRow = ROW;
+		
+		ArrayList<Point> listPointsFirstMovePawn = null;			//list for possible points of movement
+		listPointsFirstMovePawn = getPointsMovePawn(team);
+		if(team == 1)
+		{
+			listPointsFirstMovePawn.add(new Point(positionColumn, positionRow+2));
+		}
+		else
+		{
+			listPointsFirstMovePawn.add(new Point(positionColumn, positionRow-2));		
+		}
+		
+		
+		
+		return listPointsFirstMovePawn;
+	}
 }
