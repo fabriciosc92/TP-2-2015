@@ -6,6 +6,8 @@ package testesUnitarios;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import model.PawnPiece;
+
 
 public class MovesPieceTestHelper {
 	static final int COLUMN = 4;				//constante para posicao inicial
@@ -145,4 +147,5 @@ public class MovesPieceTestHelper {
 
 		return listPointsMoveHorse;
 	}
+	
 }

@@ -8,6 +8,8 @@ import java.awt.Point;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
+
 public abstract class Piece 
 {
 	protected static final String NAMEDEFAULT = "PECA";		//Constante para nome padrão
@@ -26,18 +28,18 @@ public abstract class Piece
 	/* Metodo construtor padrao que inicializa atributos*/
 	protected Piece()
 	{
-		this.positionPiece = new Point(-1,-1);
-		this.imagePiecePath = "";
-		this.namePiece = NAMEDEFAULT;
+		setPositionPiece(new Point(-1,-1)); 
+		setImagePathPiece("");
+		setNamePiece(NAMEDEFAULT);
 	}
 	
 	/* Construtor com parametros dos atributos basicos da classe */
 	protected Piece(Point positionPiece, String imagePathPiece, String namePiece)
 	{
 		this();
-		this.positionPiece = positionPiece;
-		this.imagePiecePath = imagePathPiece;
-		this.namePiece = namePiece;
+		setPositionPiece(positionPiece);
+		setImagePathPiece(imagePathPiece);
+		setNamePiece(namePiece);
 	}
 	
 	/* A seguir serão os métodos acessores dos atributos */
