@@ -31,12 +31,12 @@ public abstract class Piece
 	}
 	
 	/* Construtor com parametros dos atributos basicos da classe */
-	protected Piece(Point posicaoPeca, String caminhoImagemPeca, String nomePeca)
+	protected Piece(Point positionPiece, String imagePathPiece, String namePiece)
 	{
 		this();
-		this.positionPiece = posicaoPeca;
-		this.imagePiecePath = caminhoImagemPeca;
-		this.namePiece = nomePeca;
+		this.positionPiece = positionPiece;
+		this.imagePiecePath = imagePathPiece;
+		this.namePiece = namePiece;
 	}
 	
 	/* A seguir serão os métodos acessores dos atributos */
