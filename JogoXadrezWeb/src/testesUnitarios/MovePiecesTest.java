@@ -6,13 +6,14 @@ package testesUnitarios;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import model.BishopPiece;
-import model.QueenPiece;
-import model.KingPiece;
-import model.TowerPiece;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import model.BishopPiece;
+import model.HorsePiece;
+import model.KingPiece;
+import model.QueenPiece;
+import model.TowerPiece;
 
 public class MovePiecesTest
 {
@@ -69,6 +70,7 @@ public class MovePiecesTest
 		assertMoves(MovesPieceTestHelper.getPointsMoveTower(), listPointMoves);
 	}
 	
+	
 	/* Testa movimentos bispo */
 	@Test
 	public void moveBishopTest() throws Exception
@@ -84,6 +86,26 @@ public class MovePiecesTest
 		
 		assertMoves(MovesPieceTestHelper.getPointsMoveBishop(), listPointMoves);
 	}
+	
+	/* Test moves of horse */
+	@Test
+	public void moveHorseTest() throws Exception
+	{
+		Point positionPieceHorse = null;							//Position of horse piece
+		positionPieceHorse = createPositionInitial();
+		
+		HorsePiece horsePieceTest = null;							//A instance of horse to test
+		horsePieceTest = new HorsePiece(positionPieceHorse, "");
+		
+		ArrayList<Point> listPointMoves = null;						//List to store the points of movements from the horse
+		listPointMoves = horsePieceTest.pointMovesPiece();
+		
+		assertMoves(MovesPieceTestHelper.getPointsMoveHorse(), listPointMoves);
+	}
+	
+	
+	
+	
 	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a peça possa realizar */
 	private void assertMoves(ArrayList<Point> listPointsExpected, 
 							ArrayList<Point> listPointsPiece) throws Exception 

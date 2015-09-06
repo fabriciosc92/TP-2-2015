@@ -24,15 +24,11 @@ public class TowerPiece extends Piece {
 	public ArrayList<Point> pointMovesPiece() 
 	{
 		ArrayList<Point> listPointMoveTower = null;				//Lista de pontos de possiveis movimentos
-		listPointMoveTower = new ArrayList<Point>();
+		listPointMoveTower = super.plusMovementsPointPiece();
 		
-		for(int indexPosition = 0; indexPosition < 8; indexPosition++)
-		{
-			super.addPointList(super.getPositionPieceColumn(), indexPosition,
-					listPointMoveTower);
-			super.addPointList(indexPosition, super.getPositionPieceRow(),
-					listPointMoveTower);
-		}
+//verificar se nao esta vazia a lista 
+		
+		
 		return listPointMoveTower;
 	}
 

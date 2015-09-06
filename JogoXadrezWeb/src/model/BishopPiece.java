@@ -23,25 +23,10 @@ public class BishopPiece extends Piece
 	public ArrayList<Point> pointMovesPiece() 
 	{
 		ArrayList<Point> listPointMoveBishop = null;			//Lista de pontos de possiveis movimentos
-		listPointMoveBishop = new ArrayList<Point>();
+		listPointMoveBishop = super.crossMovementsPointPiece();
 		
-		int primaryDiagonal = 0;						//Linha usada no laço de repetição para diagonal segundaria
-		int secondaryDiagonal = 0;						//Coluna usada no laço de repetição para diagonal segundaria
+//Verificar se a lista nao retornou vazia		
 				
-		
-		for(primaryDiagonal = -7, secondaryDiagonal = 7;
-			(primaryDiagonal <= 7 && secondaryDiagonal >= -7);
-			primaryDiagonal++, secondaryDiagonal--)
-		{
-			super.addPointList(super.getPositionPieceColumn() + secondaryDiagonal,
-									super.getPositionPieceRow() + primaryDiagonal, listPointMoveBishop);
-		}		
-		
-		for(int diagonalPricipal = -7; diagonalPricipal <= 7; diagonalPricipal++)
-		{
-			super.addPointList(super.getPositionPieceColumn()+diagonalPricipal, 
-					super.getPositionPieceColumn()+diagonalPricipal, listPointMoveBishop);
-		}		
 		return listPointMoveBishop;
 	}
 

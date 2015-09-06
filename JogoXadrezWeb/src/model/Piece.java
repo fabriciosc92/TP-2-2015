@@ -5,6 +5,7 @@
 package model;
 
 import java.awt.Point;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public abstract class Piece 
@@ -90,6 +91,7 @@ public abstract class Piece
 	
 	/* Metodo abstrato de mover peca */
 	public abstract ArrayList<Point> pointMovesPiece();
+	
 	/* Metodo para adicionar pontos na lista de possiveis movimentos */
 	protected void addPointList(int column,int row,	
 			ArrayList<Point> listPointMovesPiece)
@@ -102,6 +104,7 @@ public abstract class Piece
 			listPointMovesPiece.add(possiblePoint);
 		}
 	}
+	
 	/* Verifica se a linha e coluna passadas por parametro é a mesma que a posição da peça */
 	protected boolean isOwnPosition(int column, int row) 
 	{
@@ -111,5 +114,72 @@ public abstract class Piece
 			return true;
 		}
 		return false;
+	}
+	
+	/* Create the movements in cross (x)*/
+	protected ArrayList<Point> crossMovementsPointPiece()
+	{
+		int indexRow = 0;								//row used to loop in the primary diagonal
+		int indexColumn = 0;								//column used to loop in the secondary diagonal
+		
+		ArrayList<Point> listPointSecondaryDiagonal = null;		//list to points of secondary diagonal
+		listPointSecondaryDiagonal = new ArrayList<Point>();
+		/* Secondary diagonal (i+j == N) in a  square matrix NxN */
+		for(indexRow = -7, indexColumn = 7;
+			(indexRow <= 7 && indexColumn >= -7);
+			indexRow++, indexColumn--)
+		{
+			this.addPointList(this.getPositionPieceColumn()+indexColumn, 
+					this.getPositionPieceRow()+indexRow, listPointSecondaryDiagonal);
+		}		
+		ArrayList<Point> listPointCrossMove = null;				//list to join list of primary and secundary diagonals
+		listPointCrossMove = new ArrayList<Point>();
+//Verificar movimentos
+		listPointCrossMove.addAll(listPointSecondaryDiagonal);
+		listPointSecondaryDiagonal.clear();
+		
+		ArrayList<Point> listPointPrimaryDiagonal = null;		//list to points of primary diagonal
+		listPointPrimaryDiagonal = new ArrayList<Point>();
+		/* Primary diagonal (i == j) in a  square matrix */
+		for(int diagonalPricipal = -4; diagonalPricipal <= 4; diagonalPricipal++)
+		{
+			this.addPointList(this.getPositionPieceColumn()+diagonalPricipal, 
+					this.getPositionPieceRow()+diagonalPricipal, listPointPrimaryDiagonal);
+		}
+//Verificar movimentos	
+		listPointCrossMove.addAll(listPointPrimaryDiagonal);
+		listPointPrimaryDiagonal.clear();
+		return listPointCrossMove;	
+	}
+	
+	/* Create movements in plus (+) */
+	protected ArrayList<Point> plusMovementsPointPiece()
+	{
+		ArrayList<Point> listPointRow = null;					//list to line points
+		listPointRow = new ArrayList<Point>();
+		/* Movements online - */
+		for(int indexPosition = 0; indexPosition < 8; indexPosition++)
+		{
+			this.addPointList(this.getPositionPieceColumn(), indexPosition,
+					listPointRow);
+		}
+//Verificar movimentos
+		ArrayList<Point> listPointPlusMove = null;					//list to points of plus move 
+		listPointPlusMove = new ArrayList<Point>();
+		listPointPlusMove.addAll(listPointRow);
+		listPointRow.clear();
+		
+		ArrayList<Point> listPointColumn = null;					//list to column points
+		listPointColumn = new ArrayList<Point>();
+		/* Movements in column | */
+		for(int indexPosition = 0; indexPosition < 8; indexPosition++)
+		{
+			this.addPointList(indexPosition, this.getPositionPieceRow(),
+					listPointColumn);
+		}
+		
+		listPointPlusMove.addAll(listPointColumn);
+		listPointColumn.clear();
+		return listPointPlusMove;
 	}
 }

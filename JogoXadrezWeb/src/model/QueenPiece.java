@@ -27,31 +27,20 @@ public class QueenPiece extends Piece {
 	@Override
 	public ArrayList<Point> pointMovesPiece() 
 	{
-		ArrayList<Point> listPointMoveQueen = null;				//Pontos para os quais a rainha pode mover-se
+		/* Move online and column for Queen */		
+		ArrayList<Point> listPlusMoveQueen = null;				//List to moves plus (+) queen
+		listPlusMoveQueen = super.plusMovementsPointPiece();
+		
+		ArrayList<Point> listPointMoveQueen = null;				//Points of queen move
 		listPointMoveQueen = new ArrayList<Point>();
+//Verificar se listPlusMoveQueen nao esta vazia!
+		listPointMoveQueen.addAll(listPlusMoveQueen);
+
+		ArrayList<Point> listCrossMoveQueen = null;				//List to moves in cross (x) queen		
+		listCrossMoveQueen = super.crossMovementsPointPiece();
+//Verificar se listCrossMo... nao esta vazia!
 		
-		/* Movimentos para a parte inferior do tabuleiro */
-		
-		for(int row = 0; row<8; row++ )
-		{
-			for(int column = 0; column <8; column++)
-			{
-				if(column == row)
-				{
-					super.addPointList(column, row, listPointMoveQueen);
-				}
-				else if( (column + row) == 
-						(super.getPositionPieceColumn() + super.getPositionPieceRow()))
-				{
-					super.addPointList(column, row, listPointMoveQueen);
-				}
-				else if( (column == super.getPositionPieceColumn()) ||
-						row == super.getPositionPieceRow())
-				{
-					super.addPointList(column, row, listPointMoveQueen);
-				}
-			}
-		}
+		listPointMoveQueen.addAll(listCrossMoveQueen);
 		return listPointMoveQueen;
 	}
 	

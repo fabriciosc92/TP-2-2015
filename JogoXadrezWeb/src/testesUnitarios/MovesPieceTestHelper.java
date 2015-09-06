@@ -123,5 +123,26 @@ public class MovesPieceTestHelper {
 
 		return listPointsMoveBishop;
 	}
+	/* Moviments of Horse */
+	public static ArrayList<Point> getPointsMoveHorse() 
+	{
+		int positionColumn = 0;										//Initial position of column
+		positionColumn = COLUMN;
+		int positionRow = 0;										//Initial position of row
+		positionRow = ROW;
+		
+		ArrayList<Point> listPointsMoveHorse = null;				//list for possible points of movement
+		listPointsMoveHorse = new ArrayList<Point>();
 
+		listPointsMoveHorse.add(new Point(positionColumn - 1, positionRow + 2));
+		listPointsMoveHorse.add(new Point(positionColumn + 1, positionRow + 2));
+		listPointsMoveHorse.add(new Point(positionColumn + 1, positionRow - 2));
+		listPointsMoveHorse.add(new Point(positionColumn - 1, positionRow - 2));
+		listPointsMoveHorse.add(new Point(positionColumn - 2, positionRow + 1));
+		listPointsMoveHorse.add(new Point(positionColumn - 2, positionRow - 1));
+		listPointsMoveHorse.add(new Point(positionColumn + 2, positionRow + 1));
+		listPointsMoveHorse.add(new Point(positionColumn + 2, positionRow - 1));
+
+		return listPointsMoveHorse;
+	}
 }
