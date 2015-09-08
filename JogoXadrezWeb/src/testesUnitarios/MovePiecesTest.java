@@ -1,5 +1,5 @@
 /* Classe de teste ModeloPecaTeste
- * Responsável pelos testes unitarios da classe abstrata Peca 
+ * Responsï¿½vel pelos testes unitarios da classe abstrata Peca 
  */
 package testesUnitarios;
 
@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import model.BishopPiece;
-import model.HorsePiece;
+import model.KnightPiece;
 import model.KingPiece;
 import model.PawnPiece;
 import model.QueenPiece;
@@ -20,7 +20,7 @@ public class MovePiecesTest
 {
 	/* Metodo de teste de movimento da peca Rei */
 	@Test
-	public void moveKingTest() throws Exception
+	public void moveKingTest() throws Exception,Throwable
 	{
 		
 		Point positionPieceaKing = null;								//Declara posicao da peca rei
@@ -31,25 +31,30 @@ public class MovePiecesTest
 		
 		kingPieceTest = new KingPiece(positionPieceaKing, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que irá armazena os pontos de movimento do rei
+		ArrayList<Point> listPointMoves = null;				//Lista que irï¿½ armazena os pontos de movimento do rei
 		
 		listPointMoves = kingPieceTest.pointMovesPiece();
 		
+		kingPieceTest.finalize();
+		
 		assertMoves(MovesPieceTestHelper.getPointsMoveKing(), listPointMoves);
+		
 	}
 	
 	/* Teste de movimento da peca Rainha */
 	@Test
-	public void moveQueenTest() throws Exception
+	public void moveQueenTest() throws Exception,Throwable
 	{
 		Point positionPieceQueen = null;								//Posicao da peca rainha
 		positionPieceQueen = createPositionInitial();
 		
-		QueenPiece queenPieceTest= null;							//Declara peça rainha a ser testada
+		QueenPiece queenPieceTest= null;							//Declara peï¿½a rainha a ser testada
 		queenPieceTest = new QueenPiece(positionPieceQueen, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que irá armazena os pontos de movimento da rainha
+		ArrayList<Point> listPointMoves = null;				//Lista que irï¿½ armazena os pontos de movimento da rainha
 		listPointMoves = queenPieceTest.pointMovesPiece();
+		
+		queenPieceTest.finalize();
 		
 		assertMoves(MovesPieceTestHelper.getPointsMoveQueen(), listPointMoves);
 		
@@ -57,16 +62,18 @@ public class MovePiecesTest
 	
 	/* Testa movimentos da torre */
 	@Test
-	public void moveTowerTest() throws Exception
+	public void moveTowerTest() throws Exception, Throwable
 	{
 		Point positionPieceTower = null;								//Posicao da peca torre
 		positionPieceTower = createPositionInitial();
 		
-		TowerPiece towerPieceTest= null;							//Declara peça torre a ser testada
+		TowerPiece towerPieceTest= null;							//Declara peï¿½a torre a ser testada
 		towerPieceTest = new TowerPiece(positionPieceTower, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que irá armazena os pontos de movimento da rainha
+		ArrayList<Point> listPointMoves = null;				//Lista que irï¿½ armazena os pontos de movimento da rainha
 		listPointMoves = towerPieceTest.pointMovesPiece();
+		
+		towerPieceTest.finalize();
 		
 		assertMoves(MovesPieceTestHelper.getPointsMoveTower(), listPointMoves);
 	}
@@ -74,39 +81,43 @@ public class MovePiecesTest
 	
 	/* Testa movimentos bispo */
 	@Test
-	public void moveBishopTest() throws Exception
+	public void moveBishopTest() throws Exception, Throwable
 	{
 		Point positionPieceBishop = null;								//Posicao da peca bispo
 		positionPieceBishop = createPositionInitial();
 		
-		BishopPiece bishopPieceTest= null;							//Declara peça bispo a ser testada
+		BishopPiece bishopPieceTest= null;							//Declara peï¿½a bispo a ser testada
 		bishopPieceTest = new BishopPiece(positionPieceBishop, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que irá armazena os pontos de movimento da rainha
+		ArrayList<Point> listPointMoves = null;				//Lista que irï¿½ armazena os pontos de movimento da rainha
 		listPointMoves = bishopPieceTest.pointMovesPiece();
+		
+		bishopPieceTest.finalize();
 		
 		assertMoves(MovesPieceTestHelper.getPointsMoveBishop(), listPointMoves);
 	}
 	
 	/* Test moves of horse */
 	@Test
-	public void moveHorseTest() throws Exception
+	public void moveKnightTest() throws Exception, Throwable
 	{
-		Point positionPieceHorse = null;							//Position of horse piece
-		positionPieceHorse = createPositionInitial();
+		Point positionPieceKnight = null;							//Position of horse piece
+		positionPieceKnight = createPositionInitial();
 		
-		HorsePiece horsePieceTest = null;							//A instance of horse to test
-		horsePieceTest = new HorsePiece(positionPieceHorse, "");
+		KnightPiece horsePieceTest = null;							//A instance of horse to test
+		horsePieceTest = new KnightPiece(positionPieceKnight, "");
 		
 		ArrayList<Point> listPointMoves = null;						//List to store the points of movements from the horse
 		listPointMoves = horsePieceTest.pointMovesPiece();
 		
-		assertMoves(MovesPieceTestHelper.getPointsMoveHorse(), listPointMoves);
+		horsePieceTest.finalize();
+		
+		assertMoves(MovesPieceTestHelper.getPointsMoveKnight(), listPointMoves);
 	}
 	
 	/* Test moves of pawn */
 	@Test
-	public void movePawnTestTeamOne() throws Exception
+	public void movePawnTestTeamOne() throws Exception,Throwable
 	{
 		Point positionPiecePawn = null;										//Position of pawn piece
 		positionPiecePawn = createPositionInitial();
@@ -122,12 +133,15 @@ public class MovePiecesTest
 		pawnPieceTestTeamOne.makeFirstMove();
 		
 		listPointMovesTeamOne = pawnPieceTestTeamOne.pointMovesPiece();
+		
+		pawnPieceTestTeamOne.finalize();
+		
 		assertMoves(MovesPieceTestHelper.getPointsMovePawn(1), listPointMovesTeamOne);
 	}
 	
 	/* Test moves of pawn */
 	@Test
-	public void movePawnTestTeamTwo() throws Exception
+	public void movePawnTestTeamTwo() throws Exception, Throwable
 	{
 		Point positionPiecePawn = null;										//Position of pawn piece
 		positionPiecePawn = createPositionInitial();
@@ -142,11 +156,13 @@ public class MovePiecesTest
 		
 		pawnPieceTestTeamTwo.makeFirstMove();
 		
+		pawnPieceTestTeamTwo.finalize();
+		
 		listPointMovesTeamTwo = pawnPieceTestTeamTwo.pointMovesPiece();
 		assertMoves(MovesPieceTestHelper.getPointsMovePawn(2), listPointMovesTeamTwo);
 	}
 	
-	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a peça possa realizar */
+	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a peï¿½a possa realizar */
 	private void assertMoves(ArrayList<Point> listPointsExpected, 
 							ArrayList<Point> listPointsPiece) throws Exception 
 	{		

@@ -1,5 +1,5 @@
 /** Classe Abstrata Peca
- * 	Modelo que servirá de base para as outras peças
+ * 	Modelo que servirï¿½ de base para as outras peï¿½as
  */
 
 package model;
@@ -12,17 +12,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
 
 public abstract class Piece 
 {
-	protected static final String NAMEDEFAULT = "PECA";		//Constante para nome padrão
+	protected static final String NAMEDEFAULT = "PECA";		//Constante para nome padrï¿½o
 	protected static final String NAMEPAWN = "PEAO";		//Constante para nome de peao
 	protected static final String NAMEKING = "REI";			//Constante para nome de REI
 	protected static final String NAMEQUEEN = "RAINHA";	//Constante para nome de RAINHA
 	protected static final String NAMETOWER = "TORRE";		//Constante para nome de TORRE
 	protected static final String NAMEBISHOP = "BISPO";		//Constante para nome de BISBO
-	protected static final String NAMEHORSE = "CAVALO";	//Constante para nome de CAVALO
+	protected static final String NAMEKNIGHT = "CAVALO";	//Constante para nome de CAVALO
 	
 	
-	private Point positionPiece = null;				//Armazenará a posicao da peça 
-	private String imagePiecePath = null;		//Conterá o caminho da imagem da peça
+	private Point positionPiece = null;				//Armazenarï¿½ a posicao da peï¿½a 
+	private String imagePiecePath = null;		//Conterï¿½ o caminho da imagem da peï¿½a
 	private String namePiece = null;					//Recebera o nome da peca
 	
 	/* Metodo construtor padrao que inicializa atributos*/
@@ -42,7 +42,7 @@ public abstract class Piece
 		setNamePiece(namePiece);
 	}
 	
-	/* A seguir serão os métodos acessores dos atributos */
+	/* A seguir serï¿½o os mï¿½todos acessores dos atributos */
 	/* Retorna Point para posicao da peca */
 	protected Point getPositionPiece() 
 	{
@@ -53,11 +53,11 @@ public abstract class Piece
 	{
 		this.positionPiece = positionPiece;
 	}
-	/* Retorna coluna onde a peça esta */
+	/* Retorna coluna onde a peï¿½a esta */
 	protected int getPositionPieceColumn(){
 		return positionPiece.x;
 	}
-	/* Retorna linha onde a peça esta */
+	/* Retorna linha onde a peï¿½a esta */
 	protected int getPositionPieceRow(){
 		return positionPiece.y;
 	}
@@ -107,15 +107,11 @@ public abstract class Piece
 		}
 	}
 	
-	/* Verifica se a linha e coluna passadas por parametro é a mesma que a posição da peça */
+	/* Verifica se a linha e coluna passadas por parametro ï¿½ a mesma que a posiï¿½ï¿½o da peï¿½a */
 	protected boolean isOwnPosition(int column, int row) 
 	{
-		if( column == this.getPositionPieceColumn() &&
-			row == this.getPositionPieceRow() )
-		{
-			return true;
-		}
-		return false;
+		return column == this.getPositionPieceColumn() &&
+			row == this.getPositionPieceRow();
 	}
 	
 	/* Create the movements in cross (x)*/
