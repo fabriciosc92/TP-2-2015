@@ -12,31 +12,22 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
 
 public abstract class Piece 
 {
-	protected static final String NAMEDEFAULT = "PECA";		//Constante para nome padr�o
-	protected static final String NAMEPAWN = "PEAO";		//Constante para nome de peao
-	protected static final String NAMEKING = "REI";			//Constante para nome de REI
-	protected static final String NAMEQUEEN = "RAINHA";	//Constante para nome de RAINHA
-	protected static final String NAMETOWER = "TORRE";		//Constante para nome de TORRE
-	protected static final String NAMEBISHOP = "BISPO";		//Constante para nome de BISBO
-	protected static final String NAMEKNIGHT = "CAVALO";	//Constante para nome de CAVALO
+	protected static final String NAMEDEFAULT = "PECA";		//Constant for default name
+	protected static final String NAMEPAWN = "PEAO";		//Constant for pawn name
+	protected static final String NAMEKING = "REI";			//Constant for king name
+	protected static final String NAMEQUEEN = "RAINHA";		//Constant for queen name
+	protected static final String NAMETOWER = "TORRE";		//Constant for tower name
+	protected static final String NAMEBISHOP = "BISPO";		//Constant for bishop name
+	protected static final String NAMEKNIGHT = "CAVALO";	//Constant for knight name
 	
 	
-	private Point positionPiece = null;				//Armazenar� a posicao da pe�a 
-	private String imagePiecePath = null;		//Conter� o caminho da imagem da pe�a
-	private String namePiece = null;					//Recebera o nome da peca
-	private String timePiece = null;
+	private Point positionPiece = null;			//Store the position of piece 
+	private String imagePiecePath = null;		//contain the path of piece image
+	private String namePiece = null;			//Receive name of piece
+	private String teamPiece = null;			//Receive team of piece
 	
-	private String getTimePiece()
-	{
-		return timePiece;
-	}
 
-	private void setTimePiece(String timePiece)
-	{
-		this.timePiece = timePiece;
-	}
-
-	/* Metodo construtor padrao que inicializa atributos*/
+	/* Method default constructor that initializes attributes */
 	protected Piece()
 	{
 		setPositionPiece(new Point(-1,-1)); 
@@ -44,7 +35,7 @@ public abstract class Piece
 		setNamePiece(NAMEDEFAULT);
 	}
 	
-	/* Construtor com parametros dos atributos basicos da classe */
+	/* Constructor with parameters of the basic attributes of the class */
 	protected Piece(Point positionPiece, String imagePathPiece, String namePiece)
 	{
 		this();
@@ -53,73 +44,83 @@ public abstract class Piece
 		setNamePiece(namePiece);
 	}
 	
-	/* A seguir ser�o os m�todos acessores dos atributos */
-	/* Retorna Point para posicao da peca */
+	/* The following are the attributes of the accessor methods */
+	/* Returns the team piece */
+	private String getTeamPiece()
+	{
+		return teamPiece;
+	}
+	/* Inserts a new team to piece */
+	private void setTeamPiece(String timePiece)
+	{
+		this.teamPiece = timePiece;
+	}
+	/* Returns Point to position the piece */
 	protected Point getPositionPiece() 
 	{
 		return positionPiece;
 	}
-	/* Insere um novo Point na posicao da peca */
+	/* Inserts a new Point to the piece position */
 	protected void setPositionPiece(Point positionPiece) 
 	{
 		this.positionPiece = positionPiece;
 	}
-	/* Retorna coluna onde a pe�a esta */
+	/* Returns column where the piece is */
 	protected int getPositionPieceColumn(){
 		return positionPiece.x;
 	}
-	/* Retorna linha onde a pe�a esta */
+	/* Returns line where the piece is */
 	protected int getPositionPieceRow(){
 		return positionPiece.y;
 	}
-	/* Retorna String para caminho de onde esta imagem da peca*/
-	protected String getImagePathPiece() 
+	/* Returns the path where the piece is */
+	public String getImagePathPiece() 
 	{
 		return imagePiecePath;
 	}
-	/* Insere um novo caminho de imagem da peca*/
+	/* Inserts a new path to the piece image */
 	protected void setImagePathPiece(String imagePathPiece) 
 	{
 		this.imagePiecePath = imagePathPiece;
 	}
-	/* Retorna String para nome da peca */
+	/* Returns String of piece name */
 	protected String getNamePiece() 
 	{
 		return namePiece;
 	}
-	/* Insere um novo nome para peca */
+	/* Inserts a new piece name */
 	protected void setNamePiece(String namePiece) 
 	{
 		this.namePiece = namePiece;
 	}
 	
-	/* Metodo finalizador da peca */
+	/* Method finalize of piece */
 	@Override
 	public void finalize() throws Throwable
 	{
 		this.imagePiecePath = null;
 		this.namePiece = null;
 		this.positionPiece = null;
-		this.timePiece = null;
+		this.teamPiece = null;
 	}
 	
-	/* Metodo abstrato de mover peca */
+	/* Abstract method to moving piece */
 	public abstract ArrayList<Point> pointMovesPiece();
 	
-	/* Metodo para adicionar pontos na lista de possiveis movimentos */
+	/* Method to add points on the possible movements list */
 	protected void addPointList(int column,int row,	
 			ArrayList<Point> listPointMovesPiece)
 	{
-		//Verificar se lista == null ou coluna/linha <0 || coluna/linha >7
+		//Check if list == null or colunm/line <0 || coluna/linha >7
 		if(!isOwnPosition(column, row) && row >=0 && row < 8 && column < 8 && column >=0)
 		{
-			Point possiblePoint = null;						//Ponto para adicionar na lista
+			Point possiblePoint = null;						//Point to add in list
 			possiblePoint = new Point(column, row);
 			listPointMovesPiece.add(possiblePoint);
 		}
 	}
 	
-	/* Verifica se a linha e coluna passadas por parametro � a mesma que a posi��o da pe�a */
+	/* Checks that the row and column passed by parameter are the same as the piece position */
 	protected boolean isOwnPosition(int column, int row) 
 	{
 		return column == this.getPositionPieceColumn() &&
@@ -129,10 +130,10 @@ public abstract class Piece
 	/* Create the movements in cross (x)*/
 	protected ArrayList<Point> crossMovementsPointPiece()
 	{
-		int indexRow = 0;								//row used to loop in the primary diagonal
-		int indexColumn = 0;								//column used to loop in the secondary diagonal
+		int indexRow = 0;								//Row used to loop in the primary diagonal
+		int indexColumn = 0;								//Column used to loop in the secondary diagonal
 		
-		ArrayList<Point> listPointSecondaryDiagonal = null;		//list to points of secondary diagonal
+		ArrayList<Point> listPointSecondaryDiagonal = null;		//List to points of secondary diagonal
 		listPointSecondaryDiagonal = new ArrayList<Point>();
 		/* Secondary diagonal (i+j == N) in a  square matrix NxN */
 		for(indexRow = -7, indexColumn = 7;
@@ -142,13 +143,13 @@ public abstract class Piece
 			this.addPointList(this.getPositionPieceColumn()+indexColumn, 
 					this.getPositionPieceRow()+indexRow, listPointSecondaryDiagonal);
 		}		
-		ArrayList<Point> listPointCrossMove = null;				//list to join list of primary and secundary diagonals
+		ArrayList<Point> listPointCrossMove = null;				//List to join list of primary and secundary diagonals
 		listPointCrossMove = new ArrayList<Point>();
-//Verificar movimentos
+//Check move
 		listPointCrossMove.addAll(listPointSecondaryDiagonal);
 		listPointSecondaryDiagonal.clear();
 		
-		ArrayList<Point> listPointPrimaryDiagonal = null;		//list to points of primary diagonal
+		ArrayList<Point> listPointPrimaryDiagonal = null;		//List to points of primary diagonal
 		listPointPrimaryDiagonal = new ArrayList<Point>();
 		/* Primary diagonal (i == j) in a  square matrix */
 		for(int diagonalPricipal = -4; diagonalPricipal <= 4; diagonalPricipal++)
@@ -156,7 +157,7 @@ public abstract class Piece
 			this.addPointList(this.getPositionPieceColumn()+diagonalPricipal, 
 					this.getPositionPieceRow()+diagonalPricipal, listPointPrimaryDiagonal);
 		}
-//Verificar movimentos	
+//Check move	
 		listPointCrossMove.addAll(listPointPrimaryDiagonal);
 		listPointPrimaryDiagonal.clear();
 		return listPointCrossMove;	
@@ -165,7 +166,7 @@ public abstract class Piece
 	/* Create movements in plus (+) */
 	protected ArrayList<Point> plusMovementsPointPiece()
 	{
-		ArrayList<Point> listPointRow = null;					//list to line points
+		ArrayList<Point> listPointRow = null;					//List to line points
 		listPointRow = new ArrayList<Point>();
 		/* Movements online - */
 		for(int indexPosition = 0; indexPosition < 8; indexPosition++)
@@ -173,13 +174,13 @@ public abstract class Piece
 			this.addPointList(this.getPositionPieceColumn(), indexPosition,
 					listPointRow);
 		}
-//Verificar movimentos
-		ArrayList<Point> listPointPlusMove = null;					//list to points of plus move 
-		listPointPlusMove = new ArrayList<Point>();
-		listPointPlusMove.addAll(listPointRow);
+//Check move
+		ArrayList<Point> listPointPlusMove = null;					//List to points of plus move 
+		listPointPlusMove = new ArrayList<Point>();		
+		listPointPlusMove.addAll(listPointRow);			//Call the method to add move in row
 		listPointRow.clear();
 		
-		ArrayList<Point> listPointColumn = null;					//list to column points
+		ArrayList<Point> listPointColumn = null;					//List to column points
 		listPointColumn = new ArrayList<Point>();
 		/* Movements in column | */
 		for(int indexPosition = 0; indexPosition < 8; indexPosition++)
@@ -188,7 +189,7 @@ public abstract class Piece
 					listPointColumn);
 		}
 		
-		listPointPlusMove.addAll(listPointColumn);
+		listPointPlusMove.addAll(listPointColumn);		//Call the method to add move in column
 		listPointColumn.clear();
 		return listPointPlusMove;
 	}
