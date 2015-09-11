@@ -1,4 +1,5 @@
-<%@page import="model.ExempleModel"%>
+<%@page import="model.*"%>
+<%@page import="java.awt.Point"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -10,7 +11,9 @@
 	</head>
 	<body>
 		<table border='1'>
-		<% for(int i =0;i<8;i++)
+		<% 
+		Piece p = new KingPiece(new Point(0,0),"king.png");
+		for(int i =0;i<8;i++)
 		{ %>
 			<tr>
 				<% for(int j=0;j<8;j++)
@@ -24,7 +27,13 @@
 						<!--   <a href="Exemple?par=<%= new ExempleModel(i,j) %>"><%= i+","+j %></a>-->					
 						<!-- botao do formulario-->
 						<!-- <button type='submit'><%= i+","+j %> </button> -->
-						<%= i+","+j %>
+						<%if(i==0 && j ==0)
+						{
+							%>
+						<img src="<%= "" %>">	
+						<%}else {%>
+						oi
+												<%} %>
 						</form>
 					</td>
 				<%} %>
