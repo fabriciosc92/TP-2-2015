@@ -24,7 +24,18 @@ public abstract class Piece
 	private Point positionPiece = null;				//Armazenar� a posicao da pe�a 
 	private String imagePiecePath = null;		//Conter� o caminho da imagem da pe�a
 	private String namePiece = null;					//Recebera o nome da peca
+	private String timePiece = null;
 	
+	private String getTimePiece()
+	{
+		return timePiece;
+	}
+
+	private void setTimePiece(String timePiece)
+	{
+		this.timePiece = timePiece;
+	}
+
 	/* Metodo construtor padrao que inicializa atributos*/
 	protected Piece()
 	{
@@ -89,6 +100,7 @@ public abstract class Piece
 		this.imagePiecePath = null;
 		this.namePiece = null;
 		this.positionPiece = null;
+		this.timePiece = null;
 	}
 	
 	/* Metodo abstrato de mover peca */
