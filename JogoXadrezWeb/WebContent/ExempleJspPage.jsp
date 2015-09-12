@@ -10,9 +10,21 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<%
+			ExempleModel em = null;
+			Piece p = null;
+			em = (ExempleModel) request.getAttribute("em");
+			if(em != null)
+				p = new KingPiece(em.getPoint(), "img/king.jpg");
+			else{
+				em = new ExempleModel(0,0);	
+				p = new KingPiece(em.getPoint(), "img/king.jpg");
+			}
+		%>
+		<img src="<%=p.getImagePathPiece()%>">
 		<table border='1'>
-		<% 
-		Piece p = new KingPiece(new Point(0,0),"king.png");
+		<%
+		
 		for(int i =0;i<8;i++)
 		{ %>
 			<tr>
@@ -26,14 +38,10 @@
 						<!-- na forma de link -->
 						<!--   <a href="Exemple?par=<%= new ExempleModel(i,j) %>"><%= i+","+j %></a>-->					
 						<!-- botao do formulario-->
-						<!-- <button type='submit'><%= i+","+j %> </button> -->
-						<%if(i==0 && j ==0)
-						{
-							%>
-						<img src="<%= "" %>">	
-						<%}else {%>
-						oi
-												<%} %>
+						 <button type='submit'><%= i+","+j %> </button> 
+						
+							
+						
 						</form>
 					</td>
 				<%} %>

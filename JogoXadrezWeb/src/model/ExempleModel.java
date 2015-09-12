@@ -15,4 +15,7 @@ public class ExempleModel
 	{
 		return pontos.x+","+pontos.y;
 	}
+	public Point getPoint(){
+		return pontos;
+	}
 }
