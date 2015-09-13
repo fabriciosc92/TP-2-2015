@@ -1,5 +1,5 @@
-/** Classe Abstrata Peca
- * 	Modelo que servir� de base para as outras pe�as
+/** Abstract class Piece
+ * 	Model as the basis for the other pieces
  */
 
 package model;

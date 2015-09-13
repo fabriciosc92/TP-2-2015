@@ -1,5 +1,5 @@
-/* Class HorsePiece
- * Represents the horse of chess
+/* Class KnightPiece
+ * Represents the knight of chess
  */
 
 
