@@ -1,5 +1,5 @@
-/* Classe PecaTorre
- * Representa a peça torre do jogo de Xadrez
+/* TowerPiece class
+ * Represents the tower of chess
  */
 package model;
 
@@ -8,25 +8,25 @@ import java.util.ArrayList;
 
 public class TowerPiece extends Piece {
 
-	/* Construtor Padrao */
+	/* Default Constructor */
 	protected TowerPiece() 
 	{
 		super();
 	}
-	/* Construtor com parâmetros */
+	/* Constructor with params */
 	public TowerPiece(Point positionPiece, String imagePathPiece)
 	{
 		super(positionPiece, imagePathPiece, NAMETOWER);
 	}
 	
-	/* Sobrescrita do método abstrato */
+	/* Overwrite the method of abstract class */
 	@Override
 	public ArrayList<Point> pointMovesPiece() 
 	{
-		ArrayList<Point> listPointMoveTower = null;				//Lista de pontos de possiveis movimentos
+		ArrayList<Point> listPointMoveTower = null;				//List for the possible points
 		listPointMoveTower = super.plusMovementsPointPiece();
 		
-//verificar se nao esta vazia a lista 
+//Check that it is not empty the list
 		
 		
 		return listPointMoveTower;

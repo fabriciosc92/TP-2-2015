@@ -19,7 +19,7 @@ public class KnightPiece extends Piece {
 	{
 		super(positionPiece,imagePathPiece,NAMEKNIGHT);
 	}
-	/* Method to check the moves of horse */
+	/* Method to check the moves of knight */
 	@Override
 	public ArrayList<Point> pointMovesPiece() 
 	{
