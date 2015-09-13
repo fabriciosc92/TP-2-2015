@@ -1,5 +1,5 @@
-/* Classe de teste ModeloPecaTeste
- * Respons�vel pelos testes unitarios da classe abstrata Peca 
+/* Test class MovePiecesTest
+ * Responsible for unitary tests of abstract Piece class 
  */
 package testesUnitarios;
 
@@ -18,20 +18,20 @@ import model.TowerPiece;
 
 public class MovePiecesTest
 {
-	/* Metodo de teste de movimento da peca Rei */
+	/* Test Method movement of the KingPiece */
 	@Test
 	public void moveKingTest() throws Exception,Throwable
 	{
 		
-		Point positionPieceaKing = null;								//Declara posicao da peca rei
+		Point positionPieceaKing = null;								//Declares position of the piece king
 		
 		positionPieceaKing =  createPositionInitial();
 		
-		KingPiece kingPieceTest = null;								//Declara peca rei;
+		KingPiece kingPieceTest = null;								//Declares piece king;
 		
 		kingPieceTest = new KingPiece(positionPieceaKing, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que ir� armazena os pontos de movimento do rei
+		ArrayList<Point> listPointMoves = null;				//List of points of possible movements
 		
 		listPointMoves = kingPieceTest.pointMovesPiece();
 		
@@ -41,17 +41,17 @@ public class MovePiecesTest
 		
 	}
 	
-	/* Teste de movimento da peca Rainha */
+	/* Test Method movement of the QueenPiece */
 	@Test
 	public void moveQueenTest() throws Exception,Throwable
 	{
-		Point positionPieceQueen = null;								//Posicao da peca rainha
+		Point positionPieceQueen = null;								//Declares position of the piece queen
 		positionPieceQueen = createPositionInitial();
 		
-		QueenPiece queenPieceTest= null;							//Declara pe�a rainha a ser testada
+		QueenPiece queenPieceTest= null;							//Declares piece queen
 		queenPieceTest = new QueenPiece(positionPieceQueen, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que ir� armazena os pontos de movimento da rainha
+		ArrayList<Point> listPointMoves = null;				//List of points of possible movements
 		listPointMoves = queenPieceTest.pointMovesPiece();
 		
 		queenPieceTest.finalize();
@@ -60,17 +60,17 @@ public class MovePiecesTest
 		
 	}
 	
-	/* Testa movimentos da torre */
+	/* Test Method movement of the TowerPiece */
 	@Test
 	public void moveTowerTest() throws Exception, Throwable
 	{
-		Point positionPieceTower = null;								//Posicao da peca torre
+		Point positionPieceTower = null;								//Declares position of the piece tower
 		positionPieceTower = createPositionInitial();
 		
-		TowerPiece towerPieceTest= null;							//Declara pe�a torre a ser testada
+		TowerPiece towerPieceTest= null;							//Declares piece tower
 		towerPieceTest = new TowerPiece(positionPieceTower, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que ir� armazena os pontos de movimento da rainha
+		ArrayList<Point> listPointMoves = null;				//List of points of possible movements
 		listPointMoves = towerPieceTest.pointMovesPiece();
 		
 		towerPieceTest.finalize();
@@ -79,17 +79,17 @@ public class MovePiecesTest
 	}
 	
 	
-	/* Testa movimentos bispo */
+	/* Test Method movement of the BishopPiece */
 	@Test
 	public void moveBishopTest() throws Exception, Throwable
 	{
-		Point positionPieceBishop = null;								//Posicao da peca bispo
+		Point positionPieceBishop = null;								//Declares position of the piece bishop
 		positionPieceBishop = createPositionInitial();
 		
-		BishopPiece bishopPieceTest= null;							//Declara pe�a bispo a ser testada
+		BishopPiece bishopPieceTest= null;							//Declares piece bishop
 		bishopPieceTest = new BishopPiece(positionPieceBishop, "");
 		
-		ArrayList<Point> listPointMoves = null;				//Lista que ir� armazena os pontos de movimento da rainha
+		ArrayList<Point> listPointMoves = null;				//List of points of possible movements
 		listPointMoves = bishopPieceTest.pointMovesPiece();
 		
 		bishopPieceTest.finalize();
@@ -97,17 +97,17 @@ public class MovePiecesTest
 		assertMoves(MovesPieceTestHelper.getPointsMoveBishop(), listPointMoves);
 	}
 	
-	/* Test moves of horse */
+	/* Test Method movement of the KnightPiece */
 	@Test
 	public void moveKnightTest() throws Exception, Throwable
 	{
-		Point positionPieceKnight = null;							//Position of horse piece
+		Point positionPieceKnight = null;							//Position of Knight piece
 		positionPieceKnight = createPositionInitial();
 		
-		KnightPiece horsePieceTest = null;							//A instance of horse to test
+		KnightPiece horsePieceTest = null;							//A instance of Knight to test
 		horsePieceTest = new KnightPiece(positionPieceKnight, "");
 		
-		ArrayList<Point> listPointMoves = null;						//List to store the points of movements from the horse
+		ArrayList<Point> listPointMoves = null;						//List to store the points of movements from the Knight
 		listPointMoves = horsePieceTest.pointMovesPiece();
 		
 		horsePieceTest.finalize();
@@ -162,33 +162,34 @@ public class MovePiecesTest
 		assertMoves(MovesPieceTestHelper.getPointsMovePawn(2), listPointMovesTeamTwo);
 	}
 	
-	/* AssertMoves verifica se os movimentos gerados estao de acordo com os movimentos esperados que a pe�a possa realizar */
+	/* AssertMoves 
+checks whether the generated movements are consistent with the expected movements that can perform the piece */
 	private void assertMoves(ArrayList<Point> listPointsExpected, 
 							ArrayList<Point> listPointsPiece) throws Exception 
 	{		
 		if ( listPointsExpected.size() != listPointsPiece.size() )
-		{//Compara o tamanho das duas listas
+		{//Compare the size of two lists
 			Assert.assertTrue(false);
 			throw new Exception();
 		}
 
 		for (Point pointMoveExpected : listPointsExpected)
-		{//Percorre a lista elemento por elemento
+		{//Through the list element by element
 			if (!listPointsPiece.contains(pointMoveExpected)) 
-			{//Compara se os elementos da lista MovesTestHelper estão na lista gerada por você
-				Assert.assertTrue(false);//se não tiver Teste deu errado
-				throw new Exception();//encerra função
+			{//Compares the elements of MovesTestHelper list are on the list generated by you
+				Assert.assertTrue(false);//If none test is wrong
+				throw new Exception();//Closed function
 			}
 		}
-		Assert.assertTrue(true);//Se a função não foi encerrada Teste Deu certo!
+		Assert.assertTrue(true);//If the function has not been closed test. It worked!
 	}
 	
 	private Point createPositionInitial(){
-		int positionInitialColumn = 0;								//Posicao inicial da coluna
+		int positionInitialColumn = 0;								//Initial position of the column
 		positionInitialColumn = MovesPieceTestHelper.COLUMN;
-		int positionInitialRow = 0;								//Posicao inicial da linha
+		int positionInitialRow = 0;								//Initial position of the line
 		positionInitialRow = MovesPieceTestHelper.ROW;
-		Point initialPosition = null;								//Ponto da posicao inicial
+		Point initialPosition = null;								//Initial position of the point
 		initialPosition= new Point(positionInitialColumn,positionInitialRow);
 		return initialPosition;		
 	}
