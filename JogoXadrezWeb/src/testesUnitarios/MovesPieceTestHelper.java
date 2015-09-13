@@ -1,5 +1,5 @@
-/* Classe ModeloPecaTestePadrao 
- * Contera o que � esperado ao utilizar os metodos da classe modelo Peca 
+/* MovesPieceTestHelper class 
+ * It contains what is expected when using the methods of model class Piece
  */
 package testesUnitarios;
 
@@ -10,16 +10,16 @@ import model.PawnPiece;
 
 
 public class MovesPieceTestHelper {
-	static final int COLUMN = 4;				//constante para posicao inicial
-	static final int ROW = 4;					//constante para posicao inicial
+	static final int COLUMN = 4;				//Constant for initial position
+	static final int ROW = 4;					//Constant for initial position
 	
     static ArrayList<Point> getPointsMoveKing()
 	{
-		int positionColumn = 0; 												//Coluna inicial onde estar� a pe�a no tabuleiro
+		int positionColumn = 0; 												//Starting column where is the piece on the board
 		positionColumn =  COLUMN;
-		int positionRow = 0;											//Linha inicial onde estar� a pe�a no tabuleiro
+		int positionRow = 0;											//Starting line where is the piece on the board
 		positionRow = ROW;
-		ArrayList<Point> listPointsMoveKing = null; 						//Lista para pontos de movimentos do rei
+		ArrayList<Point> listPointsMoveKing = null; 						//List to possible moves ofthe king
 		listPointsMoveKing = new ArrayList<Point>();
 
 		listPointsMoveKing.add(new Point(positionColumn + 1, positionRow + 1));
@@ -34,11 +34,11 @@ public class MovesPieceTestHelper {
 	}
 	static ArrayList<Point> getPointsMoveQueen(){
 		
-		int positionColumn = 0;					//Coluna inicial onde estar� a pe�a no tabuleiro
+		int positionColumn = 0;					//Initial position of column
 		positionColumn = COLUMN;
-		int positionRow = 0;					//Linha inicial onde estar� a pe�a no tabuleiro
+		int positionRow = 0;					//Initial position of line
 		positionRow = ROW;
-		ArrayList<Point> listPointsMoveQueen = null;				//Lista que ir� armazenar pontos que a rainha pode mover
+		ArrayList<Point> listPointsMoveQueen = null;				//List to possible moves of the queen 
 		listPointsMoveQueen = new ArrayList<Point>();
 
 		listPointsMoveQueen.add(new Point(positionColumn - 4, positionRow));
@@ -72,14 +72,14 @@ public class MovesPieceTestHelper {
 		return listPointsMoveQueen;
 		
 	}
-	/* Movimentos da torre */
+	/* Moves of tower */
 	public static ArrayList<Point> getPointsMoveTower() {
-		int positionColumn = 0;										//Posi��o inicial da coluna
+		int positionColumn = 0;										//Initial position of column
 		positionColumn = COLUMN;
-		int positionRow = 0;										//Posi��o inicial da linha
+		int positionRow = 0;										//Initial position of line
 		positionRow = ROW;
 		
-		ArrayList<Point> listPointsMoveTower = null;							//Lista para poss�veis pontos
+		ArrayList<Point> listPointsMoveTower = null;							//List to possible moves of the tower
 		listPointsMoveTower = new ArrayList<Point>();
 
 		listPointsMoveTower.add(new Point(positionColumn - 4, positionRow));
@@ -99,14 +99,14 @@ public class MovesPieceTestHelper {
 
 		return listPointsMoveTower;
 	}
-	/* Movimentos do bispo */
+	/* Moves of bishop */
 	public static ArrayList<Point> getPointsMoveBishop() {
-		int positionColumn = 0;										//Posi��o inicial da coluna
+		int positionColumn = 0;										//Initial position of column
 		positionColumn = COLUMN;
-		int positionRow = 0;										//Posi��o inicial da linha
+		int positionRow = 0;										//Initial position of line
 		positionRow = ROW;
 
-		ArrayList<Point> listPointsMoveBishop = null;							//Lista para poss�veis pontos
+		ArrayList<Point> listPointsMoveBishop = null;							//List to possible moves of the bishop
 		listPointsMoveBishop = new ArrayList<Point>();
 		
 		listPointsMoveBishop.add(new Point(positionColumn - 1, positionRow + 1));
@@ -125,7 +125,7 @@ public class MovesPieceTestHelper {
 
 		return listPointsMoveBishop;
 	}
-	/* Moviments of Horse */
+	/* Moviments of Knight */
 	public static ArrayList<Point> getPointsMoveKnight() 
 	{
 		int positionColumn = 0;										//Initial position of column
