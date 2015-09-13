@@ -8,24 +8,24 @@ import java.util.ArrayList;
 
 public class BishopPiece extends Piece 
 {
-	/* Construtor padrao */
+	/* Default construct */
 	protected BishopPiece() 
 	{
 		super();
 	}
-	/* Construtor com parâmetros */
+	/* Construct with parameter */
 	public BishopPiece(Point positionPiece, String imagePathPiece)
 	{
 		super(positionPiece, imagePathPiece, NAMEBISHOP);
 	}
-	/* Sobrescrita do metodo da classe abstrata */
+	/* Overwrite the method of abstract class */
 	@Override
 	public ArrayList<Point> pointMovesPiece() 
 	{
-		ArrayList<Point> listPointMoveBishop = null;			//Lista de pontos de possiveis movimentos
+		ArrayList<Point> listPointMoveBishop = null;			//List of points of possible movements
 		listPointMoveBishop = super.crossMovementsPointPiece();
 		
-//Verificar se a lista nao retornou vazia		
+//Check if the list is not returned empty		
 				
 		return listPointMoveBishop;
 	}
