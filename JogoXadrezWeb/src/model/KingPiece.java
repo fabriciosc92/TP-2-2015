@@ -1,5 +1,5 @@
-/* Classe PecaRei
- * Representa a peça Rei do jogo de xadrez 
+/* KingPiece class
+ *It is the king in chess 
  */
 
 package model;
@@ -9,23 +9,23 @@ import java.util.ArrayList;
 
 public class KingPiece extends Piece 
 {
-	/* Metodo construtor padrao */
+	/* Default construct */
 	protected KingPiece()
 	{
 		super();
 	}
-	/* Construtor com parametros */
+	/* Construct with parameter */
 	public KingPiece(Point positionPiece, String imagemPathPiece)
 	{
 		super(positionPiece, imagemPathPiece, NAMEKING);
 	}
 	
-	/* Sobrescrita do metodo de movimentacao da classe peca */
+	/* Overwrite the method of abstract class */
 	@Override
 	public ArrayList<Point> pointMovesPiece() {
-		ArrayList<Point> listPointMovesKing = null; 				//Lista que armazenara os pontos para os quais a peca possa ser movida
+		ArrayList<Point> listPointMovesKing = null; 				//List of points of possible movements
 		listPointMovesKing = new ArrayList<Point>();
-		/* adiciona todos os pontos mesmo */
+		/* Add all points */
 		for(int row=-1; row<=1; row++)
 		{
 			for(int column = -1; column<=1; column++)

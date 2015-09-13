@@ -1,5 +1,5 @@
-/* Classe PecaBispo 
- * Representa o bispo no jogo de xadrez
+/* BishopPiece 
+ * It is the bishop in chess
  */
 package model;
 
