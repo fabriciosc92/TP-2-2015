@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+#imagemRei{
+	width:50px;
+	height:50px;
+	border:3px solid #47c9af;
+	margin-top:10px;
+	float: left;
+	background: url('icon/Black K_48x48.png');
+}
+#imagemRainha{
+	width:50px;
+	height:50px;
+	border:3px solid #47c9af;
+	margin-top:10px;
+	margin-left:5px;
+	margin-right:5px;
+	float: left;
+	background: url('icon/Black Q_48x48.png');
+}
+#imagemPeao{
+	width:50px;
+	height:50px;
+	border:3px solid #47c9af;
+	margin-top:10px;
+	margin-left:5px;
+	margin-right:5px;
+	float: left;
+	background: url('icon/Black P_48x48.png');
+}
+#imagemBispo{
+	width:50px;
+	height:50px;
+	border:3px solid #47c9af;
+	margin-top:10px;
+	margin-left:5px;
+	margin-right:5px;
+	float: left;
+	background: url('icon/Black B_48x48.png');
+}
+#imagemTorre{
+	width:50px;
+	height:50px;
+	border:3px solid #47c9af;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:10px;
+	float: left;
+	background: url('icon/Black R_48x48.png');
+}
+#imagemCavalo{
+	width:50px;
+	height:50px;
+	border:3px solid #47c9af;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:10px;
+	float: left;
+	background: url('icon/Black N_48x48.png');
+}
+#imagemBranco{
+	width:50px;
+	height:50px;
+	border:3px solid #47c9af;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:10px;
+	float: left;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Site de Xadrez</title>
+<link rel="stylesheet" type="text/css" href="estilo.css" />
+<link rel="stylesheet" type="text/css" href="menu.css" />
+<link rel="stylesheet" type="text/css" href="imagens.css" />
+</head>
+
+<body>
+<div id="geral">
+	<div id="menuPagina">
+		<ul>
+   			<li class='active'><a href='#'>Home</a></li>
+   			<li><a href='#'>Jogar</a></li>
+   			<li><a href='#'>Ranking</a></li>	
+		</ul>
+  	</div>
+<div id="subGeral">   
+    <div id="menuConfiguracao"></div>
+ <div id="jogo">
+		<div id="imagemTorre"></div>
+		<div id="imagemCavalo"></div>
+		<div id="imagemBispo"></div>
+		<div id="imagemRainha"></div>
+		<div id="imagemRei"></div>
+		<div id="imagemBispo"></div>
+		<div id="imagemCavalo"></div>
+		<div id="imagemTorre"></div>
+
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+		<div id="imagemBranco"></div>
+
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+		<div id="imagemPeao"></div>
+
+		<div id="imagemTorre"></div>
+		<div id="imagemCavalo"></div>
+		<div id="imagemBispo"></div>
+		<div id="imagemRainha"></div>
+		<div id="imagemRei"></div>
+		<div id="imagemBispo"></div>
+		<div id="imagemCavalo"></div>
+		<div id="imagemTorre"></div>
+		
+	</div>
+</div>
+
+</div>
+</body>
+</html>
